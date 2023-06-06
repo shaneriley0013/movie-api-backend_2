@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
       category: params[:category]
     )
     @movie.save!
-    render :show
+    redirect_to "/movies"
   end
 
   def update
