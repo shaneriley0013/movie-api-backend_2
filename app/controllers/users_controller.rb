@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(
       name: params[:name],
       email: params[:email],
-      password_digest: params[:password_digest],
+      password: params[:password],
       image_url: params[:image_url]
     )
     if @user.save!
@@ -26,10 +26,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.update(
+    @user.update!(
     name: params[:name] || @user.name,
     email: params[:email] || @user.email,
-    password_digest: params[:password_digest] || @user.password_digest,
+    password: params[:password] || @user.password,
     image_url: params[:image_url] || @user.image_url
     )
     render :show    

@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   patch "/favorites/:id" => "favorites#update"
   delete "/favorites/:id" => "favorites#destroy"
 
-
+  post "/sessions" => "sessions#create"
 
 end
