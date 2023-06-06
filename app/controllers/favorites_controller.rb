@@ -12,25 +12,23 @@ class FavoritesController < ApplicationController
 
   def create
     @favorite = Favorite.new(
-      name: params[:name],
-      email: params[:email],
-      password_digest: params[:password_digest],
-      image_url: params[:image_url]
+    user_id: current_user.id,
+    movie_id: params[:movie_id]
     )
     @favorite.save!
     render :show
   end
 
-  def update
-    @favorite = Favorite.find_by(id: params[:id])
-    @favorite.update(
-    name: params[:name] || @favorite.name,
-    email: params[:email] || @favorite.email,
-    password_digest: params[:password_digest] || @favorite.password_digest,
-    image_url: params[:image_url] || @favorite.image_url
-    )
-    render :show    
-  end
+  # def update
+  #   @favorite = Favorite.find_by(id: params[:id])
+  #   @favorite.update(
+  #   name: params[:name] || @favorite.name,
+  #   email: params[:email] || @favorite.email,
+  #   password_digest: params[:password_digest] || @favorite.password_digest,
+  #   image_url: params[:image_url] || @favorite.image_url
+  #   )
+  #   render :show    
+  # end
   
 
   def destroy
