@@ -73,4 +73,3 @@ end
 
 gem 'jwt'
 gem 'pry'
-# gem 'bootstrap', '~> 5.3.0'
