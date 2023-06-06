@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movies = Movie.find_by(id: params[:id])
+    @movie = Movie.find_by(id: params[:id])
     render :show
   end
 
@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
       description: params[:description],
       category: params[:category]
     )
-    @movie.save
+    @movie.save!
     render :show
   end
 
