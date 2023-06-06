@@ -23,14 +23,15 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find_by(id: params[:id])
-    @movie.name = params[:name] || @movie.name
-    @movie.image_url = params[:image_url] || @movie.image_url
-    @movie.description = params[:description] || @movie.description
-    @movie.category = params[:category] || @movie.category
-
-    @movie.save
+    @movie.update(
+    name: params[:name] || @movie.name,
+    image_url: params[:image_url] || @movie.image_url,
+    description: params[:description] || @movie.description,
+    category: params[:category] || @movie.category
+    )
     render :show    
   end
+  
 
   def destroy
     @movie = Movie.find_by(id: params[:id])
