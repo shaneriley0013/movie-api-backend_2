@@ -1,8 +1,24 @@
+<br>
+<hr />
 <h1>All Movies</h1>
+<hr />
+<br>
+<br>
 
-<% @movies.each do |movie| %>
-  <h2><%= movie.name %></h2>
-  <%= image_tag(movie.image_url, style: 'width: 200px; height: 300px;') %>
-  <br>
-  <a href="/movies/<%= movie.id %>">More info</a>
-<% end %>
+
+<div class="row row-cols-1 row-cols-md-2 g-4 mx-3">
+  <% @movies.each do |movie| %>
+    <div class="col-md-3">
+      <div class="card">
+        <img src="<%= movie.image_url %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= movie.name %></h5>
+          <p><a href="/movies/<%= movie.id %>">More info</a></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  
+</div>
+
+
