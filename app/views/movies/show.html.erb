@@ -1,6 +1,9 @@
 <h1>Movie Info</h1>
-<h2><%= @movie.name %></h2>
-<p><%= @movie.image_url %></p>
-<p><%= @movie.description %></p>
-<p><%= @movie.category %></p>
 <a href="/movies">Back to all movies</a>
+<%= link_to "Edit Movie", edit_movie_path(@movie) %>
+<%= link_to "Delete movie", movie_path(@movie), data: {turbo_method: :delete} %>
+<h2><%= @movie.name %></h2>
+<%= image_tag(@movie.image_url, style: 'width: 200px; height: 300px;') %>
+<br>
+<p>Description: <%= @movie.description %></p>
+<p>Category: <%= @movie.category %></p>

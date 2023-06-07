@@ -42,7 +42,8 @@ class MoviesController < ApplicationController
   def destroy
     @movie = Movie.find_by(id: params[:id])
     @movie.destroy
-    render json: {message: "Movie has been delete!"}
+    # render json: {message: "Movie has been delete!"}
+    redirect_to "/movies", status: :see_other
   end
 
 end
