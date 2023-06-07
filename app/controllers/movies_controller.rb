@@ -18,7 +18,13 @@ class MoviesController < ApplicationController
       category: params[:category]
     )
     @movie.save!
-    redirect_to "/movies"
+    # redirect_to "/movies"
+    redirect_to "/movies/#{@movie.id}"
+  end
+
+  def edit
+    @movie = Movie.find_by(id: params[:id])
+    render :edit
   end
 
   def update
@@ -29,7 +35,7 @@ class MoviesController < ApplicationController
     description: params[:description] || @movie.description,
     category: params[:category] || @movie.category
     )
-    render :show    
+    redirect_to "/movies"   
   end
   
 

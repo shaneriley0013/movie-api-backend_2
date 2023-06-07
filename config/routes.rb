@@ -2,11 +2,15 @@ Rails.application.routes.draw do
    # Defines the root path route ("/")
   # root "articles#index"
 
-  get "/movies" => "movies#index"
-  get "/movies/:id" => "movies#show"
-  post "/movies" => "movies#create"
-  patch "/movies/:id" => "movies#update"
-  delete "/movies/:id" => "movies#destroy"
+  resources :movies
+  post '/movies/new', to: 'movies#create'
+
+  # get "/movies" => "movies#index"
+  # get "/movies/:id" => "movies#show"
+  # post "/movies/new" => "movies#new"
+  # post "/movies" => "movies#create"
+  # patch "/movies/:id" => "movies#update"
+  # delete "/movies/:id" => "movies#destroy"
   
   get "/users" => "users#index"
   get "/users/:id" => "users#show"
@@ -20,6 +24,8 @@ Rails.application.routes.draw do
   patch "/favorites/:id" => "favorites#update"
   delete "/favorites/:id" => "favorites#destroy"
 
+  get "/login" => "sessions#new"
   post "/sessions" => "sessions#create"
+  get "/logout" => "sessions#destroy"
 
 end
