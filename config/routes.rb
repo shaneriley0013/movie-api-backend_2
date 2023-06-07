@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # patch "/movies/:id" => "movies#update"
   # delete "/movies/:id" => "movies#destroy"
   
+  get "/signup" => "users#new"
   get "/users" => "users#index"
   get "/users/:id" => "users#show"
   post "/users" => "users#create"

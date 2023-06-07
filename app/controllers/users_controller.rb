@@ -10,34 +10,29 @@ class UsersController < ApplicationController
     render :show
   end
 
+  def new
+    @user = User.new
+    render template: "users/new"
+  end
+
   def create
     @user = User.new(
-      name: params[:name],
-      email: params[:email],
-      password: params[:password],
-      image_url: params[:image_url]
+      name: params[:user][:name],
+      email: params[:user][:email],
+      password: params[:user][:password],
+      image_url: params[:user][:image_url]
     )
-    if @user.save!
-      render json: { message: "User created successfully" }, status: :created
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to "/movies"
     else
-      render json: { errors: user.errors.full_messages }, status: :bad_request
+      render :new, status: :unprocessable_entity
     end
   end
 
-  def update
-    @user = User.find_by(id: params[:id])
-    @user.update!(
-    name: params[:name] || @user.name,
-    email: params[:email] || @user.email,
-    password: params[:password] || @user.password,
-    image_url: params[:image_url] || @user.image_url
-    )
-    render :show    
-  end
   
-
   def destroy
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:user][:id])
     @user.destroy!
     render json: {message: "User has been delete!"}
   end
