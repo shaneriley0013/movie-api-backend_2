@@ -1,5 +1,5 @@
 <h1>All Movies</h1>
-<a href="/movies/new">New movie</a>
+
 <% @movies.each do |movie| %>
   <h2><%= movie.name %></h2>
   <%= image_tag(movie.image_url, style: 'width: 200px; height: 300px;') %>
