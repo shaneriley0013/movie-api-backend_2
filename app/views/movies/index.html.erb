@@ -6,10 +6,10 @@
 <br>
 
 
-<div class="row row-cols-1 row-cols-md-2 g-4 mx-3">
+<div class="row row-cols-1 row-cols-md-3  mx-3 gx-5 gy-5 ">
   <% @movies.each do |movie| %>
     <div class="col-md-3">
-      <div class="card text-bg-secondary border-light mb-3">
+      <div class="card text-bg-secondary border-light mb-3 h-100">
         <img src="<%= movie.image_url %>" class="card-img-top">
         <div class="card-body">
           <div style="display: flex; justify-content: center;">

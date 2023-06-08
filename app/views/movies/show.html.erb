@@ -3,20 +3,7 @@
 <h1>Movie Info</h1>
 <hr>
 <br>
-<h1><%= @movie.name %></h1>
-<br>
-<div style="display: flex; justify-content: center;">
-  <%= image_tag(@movie.image_url, style: 'width: 400px; height: 600px;') %>
-</div>
-<hr>
 
-<br>
-<div style="display: flex; justify-content: center;">
-<p>Description: <%= @movie.description %></p>
-</div>
-<div style="display: flex; justify-content: center;">
-<p>Category: <%= @movie.category %></p>
-</div>
 <style>
   .container {
     margin-bottom: 100px; /* Adjust the value as needed */
@@ -26,7 +13,25 @@
     margin-right: 10px;
   }
 </style>
+<div style="display: flex; justify-content: center;">
+  <div class="card text-bg-secondary border-light mb-3" style="max-width: 940px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="<%= @movie.image_url %>" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= @movie.name %></h5>
+          <p class="card-text"><%= @movie.description %></p>
+          <p class="card-text"><small class="text-body-light">Category: <%= @movie.category %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <br>
+
+
 <div class="container">
   <div style="display: flex; justify-content: center;">
   <a href="/favorites/<%= @movie.id %>">
@@ -43,18 +48,3 @@
   </div>
 </div>
 
-
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="@movie.image_url, style: 'width: 400px; height: 600px;" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-</div>
