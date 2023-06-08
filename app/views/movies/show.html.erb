@@ -8,13 +8,53 @@
 <div style="display: flex; justify-content: center;">
   <%= image_tag(@movie.image_url, style: 'width: 400px; height: 600px;') %>
 </div>
-<br>
-<p>Description: <%= @movie.description %></p>
-<p>Category: <%= @movie.category %></p>
-<br>
-<a href="/favorites">Add To Favorites</a>
-<a href="/favorites">Remove from Favorites</a>
-<%= link_to "Delete movie", movie_path(@movie), data: {turbo_method: :delete} %>
-<%= link_to "Edit Movie", edit_movie_path(@movie) %>
-<a href="/movies">Back to all movies</a>
+<hr>
 
+<br>
+<div style="display: flex; justify-content: center;">
+<p>Description: <%= @movie.description %></p>
+</div>
+<div style="display: flex; justify-content: center;">
+<p>Category: <%= @movie.category %></p>
+</div>
+<style>
+  .container {
+    margin-bottom: 100px; /* Adjust the value as needed */
+  }
+
+  .btn {
+    margin-right: 10px;
+  }
+</style>
+<br>
+<div class="container">
+  <div style="display: flex; justify-content: center;">
+  <a href="/favorites/<%= @movie.id %>">
+    <button type="button" class="btn btn-success">Add To Faves</button>
+  </a>
+  <a href="/favorites/<%= @movie.id %>">
+    <button type="button" class="btn btn-success">Remove From Faves</button>
+  </a>
+  <a href="/movies">
+    <button type="button" class="btn btn-success">Back to all movies</button>
+  </a>
+  <%= link_to "Delete movie", movie_path(@movie), data: {turbo_method: :delete} %>
+  <%= link_to "Edit Movie", edit_movie_path(@movie) %>
+  </div>
+</div>
+
+
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="@movie.image_url, style: 'width: 400px; height: 600px;" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
