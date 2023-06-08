@@ -2,7 +2,8 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
-    render :index
+    p current_user
+    render :index    
   end
 
   def show
