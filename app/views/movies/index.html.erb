@@ -10,10 +10,18 @@
   <% @movies.each do |movie| %>
     <div class="col-md-3">
       <div class="card">
-        <img src="<%= movie.image_url %>" class="card-img-top" alt="...">
+        <img src="<%= movie.image_url %>" class="card-img-top">
         <div class="card-body">
+          <div style="display: flex; justify-content: center;">
           <h5 class="card-title"><%= movie.name %></h5>
-          <p><a href="/movies/<%= movie.id %>">More info</a></p>
+          </div>
+          <br>
+
+          <div style="display: flex; justify-content: center;">
+          <p><a href="/movies/<%= movie.id %>">
+            <button type="button" class="btn btn-success">More Info</button>
+          </a>
+          </div>
         </div>
       </div>
     </div>

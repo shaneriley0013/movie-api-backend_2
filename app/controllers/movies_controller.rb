@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
     description: params[:description] || @movie.description,
     category: params[:category] || @movie.category
     )
-    redirect_to "/movies"   
+    redirect_to "/movies/:id"
   end
   
 

@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     )
     if @user.save
       session[:user_id] = @user.id
-      redirect_to "/movies"
+      redirect_to "/users"
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,5 +35,6 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.destroy!
     render json: {message: "User has been delete!"}
+    redirect_to "/users"
   end
 end
