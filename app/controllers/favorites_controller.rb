@@ -16,10 +16,11 @@ class FavoritesController < ApplicationController
     user_id: current_user.id,
     movie_id: params[:favorite][:movie_id]
     )
-    @favorite.save!
-    render :show
+    if @favorite.save!
+      redirect_to "/favorites"
+    end
   end
-
+  
 
   
 
