@@ -27,6 +27,7 @@ class FavoritesController < ApplicationController
   def destroy
     @favorite = Favorite.find_by(id: params[:id])
     @favorite.destroy
-    render json: {message: "Favorite has been delete!"}
+    # render json: {message: "Favorite has been delete!"}
+    redirect_to "/favorites"
   end
 end
