@@ -34,7 +34,15 @@
 
 <div class="container">
   <div style="display: flex; justify-content: center;">
-  <a href="/favorites/new<%= @movie.id %>">
+    <%= form_with model: @favorite do |form|  %>
+      <div>
+        <%= form.hidden_field :movie_id, value: params[:id] %>
+      </div>
+  <div>
+    <%= form.submit %>
+  </div>
+  <% end%>
+  <a href="/favorites/form/<%= @movie.id %>">
     <button type="button" class="btn btn-success">Add To Faves</button>
   </a>
   <a href="/favorites/<%= @movie.id %>">
@@ -47,4 +55,20 @@
   <%= link_to "Edit Movie", edit_movie_path(@movie) %>
   </div>
 </div>
+
+<script>
+  const addToFavesButton = document.getElementById('addToFavesButton');
+  const removeFromFavesButton = document.getElementById('removeFromFavesButton');
+
+  addToFavesButton.addEventListener('click', function() {
+    addToFavesButton.style.display = 'none';
+    removeFromFavesButton.style.display = 'inline-block';
+  });
+
+  removeFromFavesButton.addEventListener('click', function() {
+    addToFavesButton.style.display = 'inline-block';
+    removeFromFavesButton.style.display = 'none';
+  });
+</script>
+
 

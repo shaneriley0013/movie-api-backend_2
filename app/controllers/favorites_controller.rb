@@ -14,7 +14,7 @@ class FavoritesController < ApplicationController
   def create
     @favorite = Favorite.new(
     user_id: current_user.id,
-    movie_id: params[:movie_id]
+    movie_id: params[:favorite][:movie_id]
     )
     @favorite.save!
     render :show

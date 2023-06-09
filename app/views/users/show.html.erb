@@ -3,18 +3,21 @@
 <h1>User Info</h1>
 <hr>
 <br>
-<h1><%= @user.name %></h1>
-<br>
-<div style="display: flex; justify-content: center;">
-  <%= image_tag(@user.image_url, style: 'width: 400px; height: 600px;') %>
-</div>
+
 
 <br>
-<a href="/favorites">Add To Favorites</a>
-<a href="/favorites">Remove from Favorites</a>
-<%= link_to "Delete User", user_path(@user), data: {turbo_method: :delete} %>
-<%= link_to "Edit User", edit_user_path(@user) %>
-<a href="/users">Back to all users</a>
 <a href="/users">Back to all users</a>
 
 
+
+<div class="row row-cols-1 row-cols-md-2 g-4 mx-3">
+  
+    <div class="col-md-3">
+      <div class="card">
+        <img src="<%= @user.image_url %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= @user.name %></h5>
+        </div>
+      </div>
+    </div>
+  
