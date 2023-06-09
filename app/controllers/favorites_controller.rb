@@ -1,10 +1,14 @@
 class FavoritesController < ApplicationController
 
   def index
-    @favorites = Favorite.where(user_id: current_user.id)
-    # @favorites = Favorite.all
-    render :index
+    if current_user.nil?
+      redirect_to "/login"
+    else
+      @favorites = Favorite.where(user_id: current_user.id)
+      render :index
+    end
   end
+  
 
   def show
     @favorite = Favorite.find_by(id: params[:id])
@@ -12,16 +16,18 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Favorite.new(
-    user_id: current_user.id,
-    movie_id: params[:favorite][:movie_id]
-    )
-    if @favorite.save!
-      redirect_to "/favorites"
+    if current_user.nil?
+      redirect_to "/login"
+    else
+      @favorite = Favorite.new(
+        user_id: current_user.id,
+        movie_id: params[:favorite][:movie_id]
+      )
+      if @favorite.save!
+        redirect_to "/favorites"
+      end
     end
   end
-  
-
   
 
   def destroy
