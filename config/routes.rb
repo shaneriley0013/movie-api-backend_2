@@ -18,12 +18,16 @@ Rails.application.routes.draw do
   post "/users" => "users#create"
   patch "/users/:id" => "users#update"
   delete "/users/:id" => "users#destroy"
+
   
   get "/favorites" => "favorites#index"
   get "/favorites/:id" => "favorites#show"
   post "/favorites" => "favorites#create"
   patch "/favorites/:id" => "favorites#update"
   delete "/favorites/:id" => "favorites#destroy"
+  post '/favorites/new', to: 'favorites#create'
+
+
 
   get "/login" => "sessions#new"
   post "/sessions" => "sessions#create"

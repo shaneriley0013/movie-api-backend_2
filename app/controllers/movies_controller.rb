@@ -36,8 +36,11 @@ class MoviesController < ApplicationController
     description: params[:description] || @movie.description,
     category: params[:category] || @movie.category
     )
-    @movie.save!
-    redirect_to "/movies", status: :see_other
+    if @movie.save!
+      redirect_to "/movies/#{@movie.id}"
+    else
+      render :new, status: :see_other
+    end
   end
   
 
@@ -49,3 +52,4 @@ class MoviesController < ApplicationController
   end
 
 end
+

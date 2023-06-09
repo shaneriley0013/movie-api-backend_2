@@ -2,6 +2,7 @@ class FavoritesController < ApplicationController
 
   def index
     @favorites = Favorite.where(user_id: current_user.id)
+    # @favorites = Favorite.all
     render :index
   end
 
@@ -19,16 +20,7 @@ class FavoritesController < ApplicationController
     render :show
   end
 
-  # def update
-  #   @favorite = Favorite.find_by(id: params[:id])
-  #   @favorite.update(
-  #   name: params[:name] || @favorite.name,
-  #   email: params[:email] || @favorite.email,
-  #   password_digest: params[:password_digest] || @favorite.password_digest,
-  #   image_url: params[:image_url] || @favorite.image_url
-  #   )
-  #   render :show    
-  # end
+
   
 
   def destroy
