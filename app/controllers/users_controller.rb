@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find_by(id: params[:id])
     @user.destroy!
-    render json: {message: "User has been delete!"}
+    #render json: {message: "User has been delete!"}
     redirect_to "/users"
   end
 end
