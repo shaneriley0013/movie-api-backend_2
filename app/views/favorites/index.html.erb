@@ -7,15 +7,26 @@
 
 
 <div class="row row-cols-1 row-cols-md-2 g-4 mx-3 mb-5">
+
   <% @favorites.each do |favorite| %>
     <div class="col-md-3">
       <div class="card">
         <img src="<%= favorite.movie.image_url %>" class="card-img-top" >
         <div class="card-body">
-          <h5 class="card-title"><%= favorite.movie.name %></h5>
+          <div style="display: flex; justify-content: center;">
+            <h4 class="card-title mt-3"><%= favorite.movie.name %></h4>
+          </div>
+
+          <div style="display: flex; justify-content: center; ">
+            <a href="/movies/<%= favorite.movie.id %>">
+              <button type="button" class="btn btn-warning mt-3 mb-4">More Info</button>
+            </a>
+          </div>
+          <div style="display: flex; justify-content: center;">
           <a href="/favorites/<%= favorite.id %>" data-turbo-method="delete">
-            <button type="button" class="btn btn-success">Remove From Faves</button>
+            <button type="button" class="btn btn-danger mb-3">Remove From Faves</button>
           </a>
+          </div>
         </div>
       </div>
     </div>
