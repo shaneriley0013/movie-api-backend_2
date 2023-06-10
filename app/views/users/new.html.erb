@@ -1,40 +1,5 @@
-<h1>Signup</h1>
-<%= form_with model: @user do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-    <% @user.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-    <% @user.errors.full_messages_for(:email).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-    <% @user.errors.full_messages_for(:password).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-    <% @user.errors.full_messages_for(:image_url).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
 
-
-<section class="vh-100" style="background-color: #eee;">
+<section class="vh-100" style="background-color: black;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
@@ -45,52 +10,44 @@
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                <form class="mx-1 mx-md-4">
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" />
-                      <label class="form-label" for="form3Example1c">Your Name</label>
-                    </div>
+                <%= form_with model: @user do |form| %>
+                  <div class="form-field">
+                    <%= form.label :name %>
+                    <%= form.text_field :name %>
+                    <% @user.errors.full_messages_for(:name).each do |message| %>
+                      <div><%= message %></div>
+                    <% end %>
                   </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" />
-                      <label class="form-label" for="form3Example3c">Your Email</label>
-                    </div>
+                  <div class="form-field">
+                    <%= form.label :email %>
+                    <%= form.email_field :email %>
+                    <% @user.errors.full_messages_for(:email).each do |message| %>
+                      <div><%= message %></div>
+                    <% end %>
                   </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" />
-                      <label class="form-label" for="form3Example4c">Password</label>
-                    </div>
+                  <div class="form-field">
+                    <%= form.label :password %>
+                    <%= form.password_field :password %>
+                    <% @user.errors.full_messages_for(:password).each do |message| %>
+                      <div><%= message %></div>
+                    <% end %>
                   </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" />
-                      <label class="form-label" for="form3Example4cd">Your Image URL</label>
-                    </div>
+                  <div class="form-field">
+                    <%= form.label :image_url %>
+                    <%= form.text_field :image_url %>
+                    <% @user.errors.full_messages_for(:image_url).each do |message| %>
+                      <div><%= message %></div>
+                    <% end %>
                   </div>
-
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-success btn-lg">Register</button>
+                  <div class="form-field">
+                    <%= form.submit %>
                   </div>
-
-                </form>
+                <% end %>
 
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
                 <img src="https://i.pinimg.com/originals/62/89/fe/6289febe290c1ec17c80af7ae4fc05cc.jpg"
                   class="img-fluid" alt="Sample image">
-
               </div>
             </div>
           </div>
