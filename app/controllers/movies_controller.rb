@@ -17,7 +17,8 @@ class MoviesController < ApplicationController
       name: params[:name],
       image_url: params[:image_url],
       description: params[:description],
-      category: params[:category]
+      category: params[:category],
+      trailer_url: params[:trailer_url]
     )
     @movie.save!
     # redirect_to "/movies"
@@ -35,7 +36,8 @@ class MoviesController < ApplicationController
     name: params[:name] || @movie.name,
     image_url: params[:image_url] || @movie.image_url,
     description: params[:description] || @movie.description,
-    category: params[:category] || @movie.category
+    category: params[:category] || @movie.category,
+    trailer_url: params[:trailer_url] || @movie.trailer_url
     )
     if @movie.save!
       redirect_to "/movies/#{@movie.id}"

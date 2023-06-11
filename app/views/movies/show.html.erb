@@ -14,24 +14,28 @@
   }
 </style>
 <div style="display: flex; justify-content: center;">
-  <div class="card text-bg-secondary border-light mb-3" style="max-width: 940px;">
+  <div class="card text-bg-secondary border-light mb-3" style="max-width: 990px;">
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-md-4 mt-4">
         <img src="<%= @movie.image_url %>" class="img-fluid rounded-start" alt="...">
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 mr-3 mt-3">
         <div class="card-body">
           <h3 class="card-title"><%= @movie.name %></h3>
           <br>
           <p class="card-text"><%= @movie.description %></p>
           <br>
           <p class="card-text"><small class="text-body-light">Category: <%= @movie.category %></p>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe width="550" height="315" class="embed-responsive-item" src="<%= @movie.trailer_url %>"      allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 <br>
+
 
 
 <div class="container">
