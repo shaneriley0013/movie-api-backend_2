@@ -24,7 +24,7 @@ class FavoritesController < ApplicationController
         movie_id: params[:favorite][:movie_id]
       )
       if @favorite.save!
-        redirect_to "/favorites"
+        redirect_to "/favorites" 
       end
     end
   end
