@@ -6,38 +6,28 @@
 <br>
 
 
-<div class="row row-cols-1 row-cols-md-3  mx-3 gx-5 gy-5 mb-5 ">
+<div class="row row-cols-1 row-cols-md-3 mx-3 gx-5 gy-5 mb-5">
   <% @movies.each do |movie| %>
     <div class="col-md-3">
       <div class="card text-bg-secondary border-light mb-3 h-100">
-        <img src="<%= movie.image_url %>" class="card-img-top">
+        <a href="/movies/<%= movie.id %>">
+          <img src="<%= movie.image_url %>" class="card-img-top">
+        </a>
         <div class="card-body">
           <div style="display: flex; justify-content: center;">
-          <h3 class="card-title"><%= movie.name %></h3>
+            <h3 class="card-title"><%= movie.name %></h3>
           </div>
           <br>
-
           <div style="display: flex; justify-content: center;">
             <a href="/movies/<%= movie.id %>">
               <button type="button" class="btn btn-dark mb-3">More Info</button>
             </a>
           </div>
-
-          <div style="display: flex; justify-content: center;">
-            <%= form_with model: @favorite do |form|  %>
-              <div>
-                <%= form.hidden_field :id, value: params[:id] %>
-              </div>
-              <div>
-                <%= form.submit "Add To Faves", class: "btn btn-success" %>
-              </div>
-            <% end%>
-          </div>
         </div>
       </div>
     </div>
   <% end %>
-  
 </div>
+
 
 

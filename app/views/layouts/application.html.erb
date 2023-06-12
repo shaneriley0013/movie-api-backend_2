@@ -31,12 +31,16 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <% if current_user %>
-            <a class="nav-link" aria-current="page" href="/favorites">Favorites</a>
+            <a class="nav-link" aria-current="page" href="/favorites">
+              <button type="button" class="btn btn-secondary mb-3">Your Favorites</button>
+            </a>
           <% end %>
         </li>
         <li class="nav-item">
           <% if current_user %>
-            <a class="nav-link" href="/movies/new">Add Movie</a>
+            <a class="nav-link" href="/movies/new">
+            <button type="button" class="btn btn-secondary mb-3">Add New Movie</button>
+            </a>
           <% end %>
         </li>
         <li class="nav-item dropdown">
