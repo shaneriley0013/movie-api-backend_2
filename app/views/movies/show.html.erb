@@ -1,8 +1,10 @@
-<br>
-<hr>
-<h1>Movie Info</h1>
-<hr>
-<br>
+<div>
+  <br>
+  <hr>
+  <h1>Movie Info</h1>
+  <hr>
+  <br>
+</div>
 
 <style>
   .container {
@@ -13,6 +15,7 @@
     margin-right: 10px;
   }
 </style>
+
 <div style="display: flex; justify-content: center;">
   <div class="card text-bg-secondary border-light mb-3" style="max-width: 990px;">
     <div class="row g-0">
@@ -41,12 +44,12 @@
 <div class="container">
   <div style="display: flex; justify-content: center;">
     <div style="display: flex; justify-content: center;">
-      <%= form_with model: @favorite do |form|  %>
+      <%= form_with model: @favorite, id: "favoriteForm" do |form| %>
         <div>
           <%= form.hidden_field :movie_id, value: params[:id] %>
         </div>
         <div id="addToFavesButton">
-          <%= form.submit "Add To Faves", class: "btn btn-primary" %>
+          <%= form.submit "Add To Faves", class: "btn btn-success", id: "addToFavesSubmit" %>
         </div>
       <% end %>
 
@@ -55,43 +58,42 @@
       </a>
 
       <script>
-        // Get references to the buttons
         const addToFavesButton = document.getElementById('addToFavesButton');
         const removeFromFavesButton = document.getElementById('removeFromFavesButton');
+        const favoriteForm = document.getElementById('favoriteForm');
+        const addToFavesSubmit = document.getElementById('addToFavesSubmit');
 
-        // Add event listener to the Add To Faves button
-        addToFavesButton.addEventListener('click', function() {
-          // Change the button text
-          addToFavesButton.innerHTML = 'Remove From Faves';
-          // Hide the Add To Faves button
-          addToFavesButton.style.display = 'none';
-          // Show the Remove From Faves button
-          removeFromFavesButton.style.display = 'inline-block';
+        addToFavesButton.addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent default button behavior
+
+          // Submit the form asynchronously using AJAX
+          const formData = new FormData(favoriteForm);
+          fetch(favoriteForm.action, {
+            method: favoriteForm.method,
+            body: formData
+          }).then(response => {
+            // Handle the response if needed
+            if (response.ok) {
+              addToFavesButton.innerHTML = 'Remove From Faves';
+              addToFavesButton.style.display = 'none';
+              removeFromFavesButton.style.display = 'inline-block';
+            }
+          }).catch(error => {
+            console.error('Error:', error);
+          });
         });
       </script>
     </div>
-    <%= form_with model: @favorite do |form|  %>
-      <div>
-        <%= form.hidden_field :movie_id, value: params[:id] %>
-      </div>
-      <div>
-        <%= form.submit "Add To Faves", class: "btn btn-success" %>
-      </div>
-    <% end%>
-
-    
-    <!--<a href="/favorites/destroy/<%= @favorite.id %>">
-      <button type="button" class="btn btn-danger">Remove From Faves</button>
-    </a> -->
 
     <a href="/movies">
-      <button type="button" class="btn btn-success">Back to all movies</button>
+      <button type="button" class="btn btn-primary">Back to all movies</button>
     </a>
 
     <%= link_to "Delete movie", movie_path(@movie), data: {turbo_method: :delete} %>
     <%= link_to "Edit Movie", edit_movie_path(@movie) %>
   </div>
 </div>
+
 
 
 
