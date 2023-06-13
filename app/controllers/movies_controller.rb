@@ -1,9 +1,11 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all
-    p current_user
-    render :index    
+    if params[:name].present?
+      @movies = Movie.where("name iLIKE ?", "%#{params[:name]}%")
+    else
+      @movies = Movie.all
+    end
   end
 
   def show
