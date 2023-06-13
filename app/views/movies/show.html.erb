@@ -89,8 +89,9 @@
       <button type="button" class="btn btn-warning">Back to all movies</button>
     </a>
 
-    <%= link_to "Delete movie", movie_path(@movie), data: {turbo_method: :delete} %>
+    <%= link_to "Delete movie", movie_path(@movie), data: {turbo_method: :delete} %>&nbsp;&nbsp;
     <%= link_to "Edit Movie", edit_movie_path(@movie) %>
+
   </div>
 </div>
 
