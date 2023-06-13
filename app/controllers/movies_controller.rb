@@ -23,7 +23,6 @@ class MoviesController < ApplicationController
       trailer_url: params[:trailer_url]
     )
     @movie.save!
-    # redirect_to "/movies"
     redirect_to "/movies/#{@movie.id}"
   end
 
