@@ -34,16 +34,12 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <% if current_user %>
-            <a class="nav-link" aria-current="page" href="/favorites">
-              <button type="button" class="btn btn-secondary mb-3">Your Favorites</button>
-            </a>
+            <a class="navbar-brand" href="/favorites"><img src="/assets/avatars-000589747854-gzbnlo-t500x500.jpg" alt="Image" style="width: 150px; height: auto;"></a>
           <% end %>
         </li>
         <li class="nav-item">
           <% if current_user %>
-            <a class="nav-link" href="/movies/new">
-            <button type="button" class="btn btn-secondary mb-3">Add New Movie</button>
-            </a>
+            <a class="navbar-brand" href="/movies/new"><img src="/assets/add_movie.png" alt="Image" style="width: 150px; height: auto;"></a>
           <% end %>
         </li>
         <li class="nav-item dropdown">
@@ -71,7 +67,7 @@
       </ul>
       <form class="d-flex" role="search" action="/movies" method="get">
         <input class="form-control me-2" type="search" placeholder="Search Movie Title" aria-label="Search" name="name">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-warning" type="submit">Search</button>
       </form>
 
     </div>
